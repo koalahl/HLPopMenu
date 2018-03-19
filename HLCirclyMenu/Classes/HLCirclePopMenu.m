@@ -1,49 +1,55 @@
 //
-//  HLPopCiycleButton.m
+//  HLCirclePopMenu.m
 //  Yeyu
 //
 //  Created by HanLiu on 2017/2/7.
 //  Copyright © 2017年 mobilenowgroup. All rights reserved.
 //
 
-#import "HLPopCiycleMenu.h"
+#import "HLCirclePopMenu.h"
 
-CGFloat kAnimationTimeInterval = 0.3;
 
-@interface HLPopCiycleMenu ()
+@interface HLCirclePopMenu ()
 
-@property (nonatomic,strong) UIButton *centerBtn;
-@property (nonatomic,strong) NSMutableArray *menuItemsArray;
+
 @property (nonatomic,assign) NSInteger count;
 @end
-@implementation HLPopCiycleMenu
+@implementation HLCirclePopMenu
 
-- (instancetype)initWithFrame:(CGRect)frame centerItem:(UIButton *)item menuItems:(NSArray <UIButton *>*)items {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.centerBtn = item;
-        self.distance = frame.size.width + 20;//默认值
-        self.startAngle = 0;
-        self.angleScope = M_PI/2;
-        [self setMenuItems:items];
-        
-        [self addSubview:self.centerBtn];
-        
-        [self.centerBtn addTarget:self action:@selector(open) forControlEvents:UIControlEventTouchUpInside];
-
+#pragma mark - View lifeCycle
+- (instancetype)init {
+    if (self = [super init]) {
+        [self config];
     }
     return self;
 }
 
-- (void)setStartAngle:(double)startAngle {
-    _startAngle = startAngle;
-    [self layoutIfNeeded];
-    
+- (instancetype)initWithCenterItem:(UIButton *)item menuItems:(NSArray <UIButton *>*)items {
+    self = [super init];
+    if (self) {
+        //默认值
+        [self config];
+        self.centerBtn = item;
+        self.menuItemsArray = [NSMutableArray arrayWithArray:items];
+    }
+    return self;
 }
 
-- (void)setAngleScope:(double)angleScope {
-    _angleScope = angleScope;
-    [self layoutIfNeeded];
+- (instancetype)initWithFrame:(CGRect)frame centerItem:(UIButton *)item menuItems:(NSArray <UIButton *>*)items {
+    self = [super initWithFrame:frame];
+    if (self) {
+        //默认值
+        [self config];
+        self.centerBtn = item;
+        self.menuItemsArray = [NSMutableArray arrayWithArray:items];
+    }
+    return self;
+}
+
+- (void)config{
+    self.startAngle = 0;
+    self.angleScope = M_PI/2;
+    self.animationTimeInterval = 0.25;
 }
 
 - (void)layoutSubviews {
@@ -51,11 +57,27 @@ CGFloat kAnimationTimeInterval = 0.3;
         btn.center = self.centerBtn.center;
     }
     NSLog(@"layoutSubviews");
-    //默认展开
-    //[self open];
 }
-#pragma mark -- 点击事件
+#pragma mark - Setter
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    self.distance = frame.size.width + 20;
+}
+
+- (void)setCenterBtn:(UIButton *)centerBtn {
+    _centerBtn = centerBtn;
+    [_centerBtn addTarget:self action:@selector(open) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_centerBtn];
+}
+
+- (void)setMenuItemsArray:(NSArray *)menuItemsArray {
+    _menuItemsArray = [NSMutableArray arrayWithArray:menuItemsArray];
+    [self setMenuItems];
+}
+
+#pragma mark - 点击事件
 - (void)open {
+    self.centerBtn.selected = !self.centerBtn.isSelected;
     NSInteger k = 0;
     if (self.isExpanded == true) {
         [self close];
@@ -67,23 +89,10 @@ CGFloat kAnimationTimeInterval = 0.3;
             for (UIButton *btn in self.menuItemsArray) {
                 k = btn.tag - 10000;
                 
-                [UIView animateWithDuration:kAnimationTimeInterval animations:^{
+                [UIView animateWithDuration:self.animationTimeInterval animations:^{
                    
                      btn.center = CGPointMake(self.distance *  cos((k-1) * self.angleScope / (self.count - 1) + self.startAngle) + self.centerBtn.center.x, self.centerBtn.center.y - self.distance *  sin((k-1) * self.angleScope / (self.count - 1) + self.startAngle));
                    
-                } completion:^(BOOL finished) {
-                    
-                }];
-                
-            }
-        }else {
-            for (UIButton *btn in self.menuItemsArray) {
-                k = btn.tag - 10000;
-                
-                [UIView animateWithDuration:kAnimationTimeInterval animations:^{
-                    
-                    btn.center = CGPointMake(self.distance *  cos(0) + self.centerBtn.center.x, btn.center.y);
-                    
                 } completion:^(BOOL finished) {
                     
                 }];
@@ -104,7 +113,7 @@ CGFloat kAnimationTimeInterval = 0.3;
     for (UIButton *btn in self.menuItemsArray) {
         k = btn.tag - 10000;
         
-        [UIView animateWithDuration:kAnimationTimeInterval animations:^{
+        [UIView animateWithDuration:self.animationTimeInterval animations:^{
             
             btn.center = self.centerBtn.center;
             
@@ -145,7 +154,7 @@ CGFloat kAnimationTimeInterval = 0.3;
     return NO;
 }
 
-#pragma mark - 私有方法
+#pragma mark - 公开方法
 - (void)addMenuItem:(UIButton *)item {
     [self.menuItemsArray addObject:item];
 }
@@ -154,7 +163,7 @@ CGFloat kAnimationTimeInterval = 0.3;
     [self.menuItemsArray addObjectsFromArray:items];
     
     //重新设置菜单按钮的tag和事件
-    [self setMenuItems:items];
+    [self setMenuItems];
 }
 
 - (void)removeMenuItemAtIndex:(NSInteger)index {
@@ -183,8 +192,9 @@ CGFloat kAnimationTimeInterval = 0.3;
 - (UIButton *)itemAtIndex:(NSUInteger)index {
     return self.menuItemsArray[index];
 }
-- (void)setMenuItems:(NSArray *)items {
-    self.menuItemsArray = [NSMutableArray arrayWithArray:items];
+
+#pragma mark - 私有方法
+- (void)setMenuItems{
     self.count = self.menuItemsArray.count;
     NSInteger i = 1;
     for (UIButton *btn in self.menuItemsArray) {
