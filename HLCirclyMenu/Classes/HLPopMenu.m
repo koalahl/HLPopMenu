@@ -119,6 +119,9 @@
 }
 
 #pragma mark - 公开方法
+- (void)open {};
+- (void)close{};
+
 - (void)addMenuItem:(UIButton *)item {
     [self.menuItemsArray addObject:item];
 }
