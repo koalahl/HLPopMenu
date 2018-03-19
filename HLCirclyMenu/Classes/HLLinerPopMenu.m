@@ -23,16 +23,30 @@
     }
     {
         //open animation
-        if (self.menuItemsArray.count > 1) {
-            for (UIButton *btn in self.menuItemsArray) {
+        
+        if (self.items.count > 1) {
+            for (UIButton *btn in self.items) {
                 k = btn.tag - 10000;
-                
+                CGPoint destPoint = CGPointZero;
+                switch (self.direction) {
+                    case HLLinerPopMenuDirectionUp:
+                        destPoint = CGPointMake( self.centerBtn.center.x, self.centerBtn.center.y - self.distance * k/2);
+                        break;
+                    case HLLinerPopMenuDirectionDown:
+                        destPoint = CGPointMake( self.centerBtn.center.x, self.centerBtn.center.y + self.distance * k/2);
+                        break;
+                    case HLLinerPopMenuDirectionLeft:
+                        destPoint = CGPointMake( self.centerBtn.center.x - self.distance * k/2, self.centerBtn.center.y);
+                        break;
+                    case HLLinerPopMenuDirectionRight:
+                        destPoint = CGPointMake( self.centerBtn.center.x + self.distance * k/2, self.centerBtn.center.y);
+                        break;
+                    default:
+                        break;
+                }
                 [UIView animateWithDuration:self.animationTimeInterval animations:^{
-                    
-                    btn.center = CGPointMake( self.centerBtn.center.x, self.centerBtn.center.y - self.distance * k/2);
-                    
+                    btn.center = destPoint;
                 } completion:^(BOOL finished) {
-                    
                 }];
             }
         }
@@ -46,7 +60,7 @@
     }
     NSInteger k = 0;
     //animation
-    for (UIButton *btn in self.menuItemsArray) {
+    for (UIButton *btn in self.items) {
         k = btn.tag - 10000;
         
         [UIView animateWithDuration:self.animationTimeInterval animations:^{
@@ -60,11 +74,5 @@
     self.expanded = !self.isExpanded;
 }
 
-- (void)clickedBtn:(UIButton *)sender {
-    NSInteger index = sender.tag - 10001;
-    if ([self.delegate respondsToSelector:@selector(didSelectItem:atIndex:)]) {
-        [self.delegate didSelectItem:sender atIndex:index];
-    }
-}
 
 @end

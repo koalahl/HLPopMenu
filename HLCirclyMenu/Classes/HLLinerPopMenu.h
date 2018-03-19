@@ -8,7 +8,10 @@
 #import <UIKit/UIKit.h>
 #import "HLPopMenu.h"
 
+
+
 @interface HLLinerPopMenu : HLPopMenu
+
 
 - (void)open;
 - (void)close;

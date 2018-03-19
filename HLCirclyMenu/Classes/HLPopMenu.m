@@ -11,7 +11,7 @@
 
 @interface HLPopMenu()
 @property (nonatomic,assign) NSInteger count;
-
+@property (nonatomic,strong) NSMutableArray  *menuItemsArray;
 @end
 @implementation HLPopMenu
 
@@ -79,15 +79,17 @@
     [self addSubview:_centerBtn];
 }
 
-- (void)setMenuItemsArray:(NSArray *)menuItemsArray {
-    _menuItemsArray = [NSMutableArray arrayWithArray:menuItemsArray];
+- (void)setItems:(NSArray *)items {
+    _menuItemsArray = [NSMutableArray arrayWithArray:items];
     [self setMenuItems];
 }
 
-
-
+- (NSArray *)items {
+    return self.menuItemsArray;
+}
 - (void)clickedBtn:(UIButton *)sender {
     NSInteger index = sender.tag - 10001;
+    NSLog(@"clickedBtn  %ld",index);
     if ([self.delegate respondsToSelector:@selector(didSelectItem:atIndex:)]) {
         [self.delegate didSelectItem:sender atIndex:index];
     }

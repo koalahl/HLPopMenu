@@ -11,6 +11,13 @@ typedef NS_ENUM(NSUInteger,HLPopMenuStyle) {
     HLPopMenuStyleLiner //直线展开
 };
 
+typedef NS_ENUM(NSUInteger,HLLinerPopMenuDirection) {
+    HLLinerPopMenuDirectionUp = 0,
+    HLLinerPopMenuDirectionDown,
+    HLLinerPopMenuDirectionLeft,
+    HLLinerPopMenuDirectionRight
+};
+
 @protocol HLPopButtonDelegate <NSObject>
 
 - (void)didSelectItem:(UIButton *)item atIndex:(NSInteger)index;
@@ -27,19 +34,29 @@ typedef NS_ENUM(NSUInteger,HLPopMenuStyle) {
 ///中心按钮到菜单按钮的距离（中心点距离）
 @property (nonatomic,assign) CGFloat distance;
 
-
+///起始角度，仅当类型为扇形sector时生效
+@property (nonatomic,assign) double startAngle;
+///按钮展开的范围 0 ~ 2π，仅当类型为扇形sector时生效
+@property (nonatomic,assign) double angleScope;
 
 ///展开/关闭动画的时间
 @property (nonatomic,assign) CGFloat animationTimeInterval;
 
 @property (nonatomic,weak)id <HLPopButtonDelegate>delegate;
 
+///中心的按钮
+@property (nonatomic,strong) UIButton *centerBtn;
+
+///子按钮数组
+@property (nonatomic,strong) NSArray *items;
+
+@property (nonatomic, assign) HLLinerPopMenuDirection direction;
+
+
 #pragma mark - Method
 - (instancetype)initWithCenterItem:(UIButton *)item menuItems:(NSArray <UIButton *>*)items;
 
 - (instancetype)initWithFrame:(CGRect)frame centerItem:(UIButton *)item menuItems:(NSArray <UIButton *>*)items;
-@property (nonatomic,strong) UIButton *centerBtn;
-@property (nonatomic,strong) NSMutableArray *menuItemsArray;
 
 - (void)addMenuItem:(UIButton *)item;
 - (void)addMenuItems:(NSArray <UIButton *>*)items;

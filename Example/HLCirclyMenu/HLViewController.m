@@ -12,7 +12,7 @@
 
 @interface HLViewController ()
 
-@property (nonatomic, strong) HLCirclePopMenu *circlePopMenu;
+@property (nonatomic, strong) HLPopMenu *circlePopMenu;
 @property (nonatomic, strong) HLLinerPopMenu *linePopMenu;
 @property (nonatomic, strong) HLPopMenu *popMenu;
 @end
@@ -59,30 +59,31 @@
     NSArray *btns = @[subBtn1,subBtn2,subBtn3];
     NSArray *btns2 = @[subBtn4,subBtn5,subBtn6];
     
-    _circlePopMenu = [[HLCirclePopMenu alloc] init];
-    _circlePopMenu.frame = CGRectMake(self.view.center.x-30, 400, 60, 60);
+    _circlePopMenu = [HLPopMenu menuWithType:HLPopMenuStyleSector];// ;//[[HLCirclePopMenu alloc] initWithFrame:CGRectMake(self.view.center.x-30, 400, 60, 60) centerItem:centerBtn menuItems:btns];//
+    _circlePopMenu.frame = CGRectMake(self.view.center.x-30, 500, 60, 60);
     _circlePopMenu.centerBtn = centerBtn;
-    _circlePopMenu.menuItemsArray = btns;
-//    _popMenu.distance = 120;
-//    _popMenu.angleScope = M_PI_2;
-//    _popMenu.startAngle = M_PI* 2;
+    _circlePopMenu.items = btns;
+    _circlePopMenu.distance = 120;
+//    _circlePopMenu.angleScope = M_PI / 3;
+    //_circlePopMenu.startAngle = M_PI_2;
     [self.view addSubview:_circlePopMenu];
     
     
-//    _linePopMenu = [[HLLinerPopMenu alloc] initWithCenterItem:centerBtn2 menuItems:btns2];
-//    _linePopMenu.frame = CGRectMake(self.view.center.x-30, 200, 60, 60);
-//    _linePopMenu.centerBtn = centerBtn2;
-//    _linePopMenu.menuItemsArray = btns2;
-//    _linePopMenu.distance = 120;
-//    [self.view addSubview:_linePopMenu];
-    
-    
-    _popMenu =  [HLPopMenu menuWithType:HLPopMenuStyleLiner];//
+    _popMenu =  [HLPopMenu menuWithType:HLPopMenuStyleLiner];
     _popMenu.frame = CGRectMake(self.view.center.x-30, 200, 60, 60);
     _popMenu.centerBtn = centerBtn2;
-    _popMenu.menuItemsArray = btns2;
+    _popMenu.items = btns2;
     _popMenu.distance = 120;
+    _popMenu.direction = HLLinerPopMenuDirectionLeft;
     [self.view addSubview:_popMenu];
+    
+    /*如果只用也可以通过这种方式初始化*/
+    //    _linePopMenu = [[HLLinerPopMenu alloc] initWithCenterItem:centerBtn2 menuItems:btns2];
+    //    _linePopMenu.frame = CGRectMake(self.view.center.x-30, 200, 60, 60);
+    //    _linePopMenu.centerBtn = centerBtn2;
+    //    _linePopMenu.menuItemsArray = btns2;
+    //    _linePopMenu.distance = 120;
+    //    [self.view addSubview:_linePopMenu];
     
 }
 
