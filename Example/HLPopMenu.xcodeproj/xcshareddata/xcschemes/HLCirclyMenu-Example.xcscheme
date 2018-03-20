@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "HLCirclyMenu_Example.app"
-               BlueprintName = "HLCirclyMenu_Example"
-               ReferencedContainer = "container:HLCirclyMenu.xcodeproj">
+               BuildableName = "HLPopMenu_Example.app"
+               BlueprintName = "HLPopMenu_Example"
+               ReferencedContainer = "container:HLPopMenu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -33,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "HLCirclyMenu_Tests.xctest"
-               BlueprintName = "HLCirclyMenu_Tests"
-               ReferencedContainer = "container:HLCirclyMenu.xcodeproj">
+               BuildableName = "HLPopMenu_Tests.xctest"
+               BlueprintName = "HLPopMenu_Tests"
+               ReferencedContainer = "container:HLPopMenu.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "HLCirclyMenu_Example.app"
-            BlueprintName = "HLCirclyMenu_Example"
-            ReferencedContainer = "container:HLCirclyMenu.xcodeproj">
+            BuildableName = "HLPopMenu_Example.app"
+            BlueprintName = "HLPopMenu_Example"
+            ReferencedContainer = "container:HLPopMenu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,6 +56,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -66,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "HLCirclyMenu_Example.app"
-            BlueprintName = "HLCirclyMenu_Example"
-            ReferencedContainer = "container:HLCirclyMenu.xcodeproj">
+            BuildableName = "HLPopMenu_Example.app"
+            BlueprintName = "HLPopMenu_Example"
+            ReferencedContainer = "container:HLPopMenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +87,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "HLCirclyMenu_Example.app"
-            BlueprintName = "HLCirclyMenu_Example"
-            ReferencedContainer = "container:HLCirclyMenu.xcodeproj">
+            BuildableName = "HLPopMenu_Example.app"
+            BlueprintName = "HLPopMenu_Example"
+            ReferencedContainer = "container:HLPopMenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

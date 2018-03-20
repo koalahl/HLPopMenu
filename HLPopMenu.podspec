@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'HLCirclyMenu'
+  s.name             = 'HLPopMenu'
   s.version          = '0.1.0'
   s.summary          = 'A short description of HLCirclyMenu.'
 
@@ -30,10 +30,10 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '7.0'
 
-  s.source_files = 'HLCirclyMenu/Classes/**/*'
+  s.source_files = 'HLPopMenu/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'HLCirclyMenu' => ['HLCirclyMenu/Assets/*.png']
+  #   'HLCirclyMenu' => ['HLPopMenu/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
