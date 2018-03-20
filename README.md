@@ -1,6 +1,6 @@
 # HLPopMenu
 
-[![CI Status](http://img.shields.io/travis/koalahl/HLPopMenu.svg?style=flat)](https://travis-ci.org/koalahl/HLPopMenu)https://travis-ci.org/koalahl/HLPopMenu.svg?branch=master
+[![CI Status](http://img.shields.io/travis/koalahl/HLPopMenu.svg?style=flat)](https://travis-ci.org/koalahl/HLPopMenu)
 [![Version](https://img.shields.io/cocoapods/v/HLPopMenu.svg?style=flat)](http://cocoapods.org/pods/HLPopMenu)
 [![License](https://img.shields.io/cocoapods/l/HLPopMenu.svg?style=flat)](http://cocoapods.org/pods/HLPopMenu)
 [![Platform](https://img.shields.io/cocoapods/p/HLPopMenu.svg?style=flat)](http://cocoapods.org/pods/HLPopMenu)
