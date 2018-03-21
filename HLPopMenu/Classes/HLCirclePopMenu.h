@@ -13,9 +13,6 @@
  */
 @interface HLCirclePopMenu : HLPopMenu
 
-
-
-
 #pragma mark - Method
 
 - (void)open;

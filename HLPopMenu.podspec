@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HLPopMenu'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'HLPopMenu is a pop menu custom view write by Objective-C'
 
 # This description is used to generate tags and improve search results.

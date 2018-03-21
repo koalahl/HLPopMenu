@@ -6,6 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class HLPopMenu;
+
 typedef NS_ENUM(NSUInteger,HLPopMenuStyle) {
     HLPopMenuStyleSector = 0, //扇形展开
     HLPopMenuStyleLiner //直线展开
@@ -20,7 +22,8 @@ typedef NS_ENUM(NSUInteger,HLLinerPopMenuDirection) {
 
 @protocol HLPopButtonDelegate <NSObject>
 
-- (void)didSelectItem:(UIButton *)item atIndex:(NSInteger)index;
+- (void)didSelectCenterBtn:(UIButton *)centerBtn inMenu:(HLPopMenu *)menu;
+- (void)didSelectItem:(UIButton *)item inMenu:(HLPopMenu *)menu atIndex:(NSInteger)index;
 
 @end
 @interface HLPopMenu : UIView

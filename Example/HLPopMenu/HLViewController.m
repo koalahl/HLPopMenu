@@ -10,7 +10,7 @@
 #import "HLCirclePopMenu.h"
 #import "HLLinerPopMenu.h"
 
-@interface HLViewController ()
+@interface HLViewController ()<HLPopButtonDelegate>
 
 @property (nonatomic, strong) HLPopMenu *circlePopMenu;
 @property (nonatomic, strong) HLLinerPopMenu *linePopMenu;
@@ -64,17 +64,19 @@
     _circlePopMenu.centerBtn = centerBtn;
     _circlePopMenu.items = btns;
     _circlePopMenu.distance = 120;
+    _circlePopMenu.delegate = self;
 //    _circlePopMenu.angleScope = M_PI / 3;
     //_circlePopMenu.startAngle = M_PI_2;
     [self.view addSubview:_circlePopMenu];
     
     
-    _popMenu =  [HLPopMenu menuWithType:HLPopMenuStyleLiner];
+    _popMenu =  [HLPopMenu menuWithType:HLPopMenuStyleSector];
     _popMenu.frame = CGRectMake(self.view.center.x-30, 200, 60, 60);
     _popMenu.centerBtn = centerBtn2;
     _popMenu.items = btns2;
     _popMenu.distance = 120;
     _popMenu.direction = HLLinerPopMenuDirectionLeft;
+    _popMenu.delegate = self;
     [self.view addSubview:_popMenu];
     
     /*如果只用也可以通过这种方式初始化*/
@@ -87,6 +89,12 @@
     
 }
 
+- (void)didSelectCenterBtn:(UIButton *)centerBtn inMenu:(HLPopMenu *)menu{
+    NSLog(@"menu = %@ , centerBtn.selected = %d",menu,centerBtn.selected);
+}
+- (void)didSelectItem:(UIButton *)item inMenu:(HLPopMenu *)menu atIndex:(NSInteger)index {
+    NSLog(@"menu = %@ ,index = %d",menu,index);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -25,6 +25,9 @@
 #pragma mark - 点击事件
 - (void)open {
     self.centerBtn.selected = !self.centerBtn.isSelected;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectCenterBtn:inMenu:)]) {
+        [self.delegate didSelectCenterBtn:self.centerBtn inMenu:self];
+    }
     NSInteger k = 0;
     if (self.isExpanded == true) {
         [self close];

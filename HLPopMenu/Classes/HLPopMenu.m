@@ -89,8 +89,8 @@
 }
 - (void)clickedBtn:(UIButton *)sender {
     NSInteger index = sender.tag - 10001;
-    if ([self.delegate respondsToSelector:@selector(didSelectItem:atIndex:)]) {
-        [self.delegate didSelectItem:sender atIndex:index];
+    if ([self.delegate respondsToSelector:@selector(didSelectItem:inMenu:atIndex:)]) {
+        [self.delegate didSelectItem:sender inMenu:self atIndex:index];
     }
 }
 
