@@ -3,9 +3,4 @@
 target 'HLPopMenu_Example' do
   pod 'HLPopMenu', :path => '../'
 
-  target 'HLPopMenu_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

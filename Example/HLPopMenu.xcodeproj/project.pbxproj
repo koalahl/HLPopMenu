@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14F9C4FAA278F4D25D14A23A /* Pods_HLPopMenu_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218B835BC53BCD63A4770B3F /* Pods_HLPopMenu_Tests.framework */; };
 		306C2B2452D03396810FBACB /* Pods_HLPopMenu_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605D6C972ACCF8638593EFD3 /* Pods_HLPopMenu_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -25,7 +24,6 @@
 		6B1EB3D330F22EE871351EBE /* Pods_HLPopMenu_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16216842369DE4E7D3303977 /* Pods_HLPopMenu_Example.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		8F834FF42A6CC59B4BF5813E /* Pods_HLPopMenu_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19D3C59998455399F6A5BB9 /* Pods_HLPopMenu_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E376D9239D5F725A4942263 /* Pods-HLPopMenu_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HLPopMenu_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HLPopMenu_Tests/Pods-HLPopMenu_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		16216842369DE4E7D3303977 /* Pods_HLPopMenu_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HLPopMenu_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8BC3EF3A31028528431D09 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1FC30DC29044E3C648FD8A70 /* Pods-HLPopMenu_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HLPopMenu_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HLPopMenu_Tests/Pods-HLPopMenu_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +67,6 @@
 		6743AB9299D3CDC75BB14080 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		68466345ABE945F7BBAC277E /* Pods-HLPopMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HLPopMenu_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HLPopMenu_Example/Pods-HLPopMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7CAB00B117271C5DDD26D79B /* Pods-HLPopMenu_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HLPopMenu_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HLPopMenu_Tests/Pods-HLPopMenu_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A44745B6D06CE110B56EF37 /* HLPopMenu.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HLPopMenu.podspec; path = ../HLPopMenu.podspec; sourceTree = "<group>"; };
 		C0C3CF44AD5184A0C240858D /* Pods-HLPopMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HLPopMenu_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HLPopMenu_Example/Pods-HLPopMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,8 +93,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				14F9C4FAA278F4D25D14A23A /* Pods_HLPopMenu_Tests.framework in Frameworks */,
-				8F834FF42A6CC59B4BF5813E /* Pods_HLPopMenu_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,12 +196,8 @@
 			children = (
 				389544059EF938A4587C5B75 /* Pods-HLPopMenu_Example.debug.xcconfig */,
 				68466345ABE945F7BBAC277E /* Pods-HLPopMenu_Example.release.xcconfig */,
-				67314BB608106C3214DAE207 /* Pods-HLPopMenu_Tests.debug.xcconfig */,
-				1FC30DC29044E3C648FD8A70 /* Pods-HLPopMenu_Tests.release.xcconfig */,
 				503D02613B02FD2F11FA3C01 /* Pods-HLPopMenu_Example.debug.xcconfig */,
 				C0C3CF44AD5184A0C240858D /* Pods-HLPopMenu_Example.release.xcconfig */,
-				7CAB00B117271C5DDD26D79B /* Pods-HLPopMenu_Tests.debug.xcconfig */,
-				0E376D9239D5F725A4942263 /* Pods-HLPopMenu_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -239,12 +229,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "HLPopMenu_Tests" */;
 			buildPhases = (
-				FA9E47B4F79DA81868D64CDE /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				4E3669A1EE07B3F69904C548 /* [CP] Embed Pods Frameworks */,
-				48587FB9120B60258917346D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -313,36 +300,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48587FB9120B60258917346D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HLPopMenu_Tests/Pods-HLPopMenu_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4E3669A1EE07B3F69904C548 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HLPopMenu_Tests/Pods-HLPopMenu_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		99F10432559EFD99E2002EC1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,24 +349,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HLPopMenu_Example/Pods-HLPopMenu_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA9E47B4F79DA81868D64CDE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HLPopMenu_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -576,7 +515,6 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CAB00B117271C5DDD26D79B /* Pods-HLPopMenu_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -600,7 +538,6 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E376D9239D5F725A4942263 /* Pods-HLPopMenu_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
