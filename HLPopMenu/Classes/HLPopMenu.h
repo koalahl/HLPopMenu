@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger,HLLinerPopMenuDirection) {
 
 @protocol HLPopButtonDelegate <NSObject>
 
-- (void)didSelectCenterBtn:(UIButton *)centerBtn inMenu:(HLPopMenu *)menu;
+- (void)didSelectMenu:(HLPopMenu *)menu;
 - (void)didSelectItem:(UIButton *)item inMenu:(HLPopMenu *)menu atIndex:(NSInteger)index;
 
 @end
@@ -49,6 +49,7 @@ typedef NS_ENUM(NSUInteger,HLLinerPopMenuDirection) {
 
 ///中心的按钮
 @property (nonatomic,strong) UIButton *centerBtn;
+@property (nonatomic,strong) UIView *centerView;
 
 ///子按钮数组
 @property (nonatomic,strong) NSArray *items;

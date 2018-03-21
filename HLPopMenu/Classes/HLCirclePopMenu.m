@@ -24,12 +24,20 @@
 
 #pragma mark - 点击事件
 - (void)open {
-    self.centerBtn.selected = !self.centerBtn.isSelected;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectCenterBtn:inMenu:)]) {
-        [self.delegate didSelectCenterBtn:self.centerBtn inMenu:self];
+    UIView *centerv = nil;
+    if (self.centerBtn) {
+        self.centerBtn.selected = !self.centerBtn.isSelected;
+        centerv = self.centerBtn;
+    }else if (self.centerView){
+        centerv = self.centerView;
+    }
+    
+    self.expanded = !self.isExpanded;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectMenu:)]) {
+        [self.delegate didSelectMenu:self];
     }
     NSInteger k = 0;
-    if (self.isExpanded == true) {
+    if (self.isExpanded == false) {
         [self close];
         return;
     }
@@ -41,21 +49,18 @@
                 
                 [UIView animateWithDuration:self.animationTimeInterval animations:^{
                    
-                     btn.center = CGPointMake(self.distance *  cos((k-1) * self.angleScope / (self.count - 1) + self.startAngle) + self.centerBtn.center.x, self.centerBtn.center.y - self.distance *  sin((k-1) * self.angleScope / (self.count - 1) + self.startAngle));
+                     btn.center = CGPointMake(self.distance *  cos((k-1) * self.angleScope / (self.count - 1) + self.startAngle) + centerv.center.x, centerv.center.y - self.distance *  sin((k-1) * self.angleScope / (self.count - 1) + self.startAngle));
                    
                 } completion:^(BOOL finished) {
                     
                 }];
-                
             }
         }
     }
-    
-    self.expanded = !self.isExpanded;
 }
 
 - (void)close {
-    if (self.isExpanded == false) {
+    if (self.isExpanded == true) {
         return;
     }
     NSInteger k = 0;
@@ -65,13 +70,12 @@
         
         [UIView animateWithDuration:self.animationTimeInterval animations:^{
             
-            btn.center = self.centerBtn.center;
+            btn.center = self.centerBtn?self.centerBtn.center:self.centerView.center;
             
         } completion:^(BOOL finished) {
             
         }];
     }
-    self.expanded = !self.isExpanded;
 }
 
 

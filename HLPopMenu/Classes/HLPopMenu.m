@@ -63,7 +63,7 @@
 
 - (void)layoutSubviews {
     for (UIButton *btn in self.menuItemsArray) {
-        btn.center = self.centerBtn.center;
+        btn.center = self.centerBtn ? self.centerBtn.center : self.centerView.center;
     }
     NSLog(@"layoutSubviews");
 }
@@ -79,6 +79,13 @@
     [self addSubview:_centerBtn];
 }
 
+- (void)setCenterView:(UIView *)centerView {
+    _centerView = centerView;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(open)];
+    [_centerView addGestureRecognizer:tap];
+    _centerView.userInteractionEnabled = YES;
+    [self addSubview:_centerView];
+}
 - (void)setItems:(NSArray *)items {
     _menuItemsArray = [NSMutableArray arrayWithArray:items];
     [self setMenuItems];
@@ -97,7 +104,7 @@
 #pragma mark - 截获屏幕点击事件
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     
-    BOOL result = CGRectContainsPoint(self.centerBtn.frame, point);
+    BOOL result = CGRectContainsPoint(self.centerBtn?self.centerBtn.frame:self.centerView.frame, point);
     
     if (result) {
         return YES;

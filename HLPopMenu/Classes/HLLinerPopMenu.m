@@ -15,12 +15,20 @@
 
 #pragma mark -- 点击事件
 - (void)open {
-    self.centerBtn.selected = !self.centerBtn.isSelected;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectCenterBtn:inMenu:)]) {
-        [self.delegate didSelectCenterBtn:self.centerBtn inMenu:self];
+    UIView *centerv = nil;
+    if (self.centerBtn) {
+        self.centerBtn.selected = !self.centerBtn.isSelected;
+        centerv = self.centerBtn;
+    }else if (self.centerView){
+        centerv = self.centerView;
+    }
+    
+    self.expanded = !self.isExpanded;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectMenu:)]) {
+        [self.delegate didSelectMenu:self];
     }
     NSInteger k = 0;
-    if (self.isExpanded == true) {
+    if (self.isExpanded == false) {
         [self close];
         return;
     }
@@ -33,16 +41,16 @@
                 CGPoint destPoint = CGPointZero;
                 switch (self.direction) {
                     case HLLinerPopMenuDirectionUp:
-                        destPoint = CGPointMake( self.centerBtn.center.x, self.centerBtn.center.y - self.distance * k/2);
+                        destPoint = CGPointMake( centerv.center.x, centerv.center.y - self.distance * k/2);
                         break;
                     case HLLinerPopMenuDirectionDown:
-                        destPoint = CGPointMake( self.centerBtn.center.x, self.centerBtn.center.y + self.distance * k/2);
+                        destPoint = CGPointMake( centerv.center.x, centerv.center.y + self.distance * k/2);
                         break;
                     case HLLinerPopMenuDirectionLeft:
-                        destPoint = CGPointMake( self.centerBtn.center.x - self.distance * k/2, self.centerBtn.center.y);
+                        destPoint = CGPointMake( centerv.center.x - self.distance * k/2, centerv.center.y);
                         break;
                     case HLLinerPopMenuDirectionRight:
-                        destPoint = CGPointMake( self.centerBtn.center.x + self.distance * k/2, self.centerBtn.center.y);
+                        destPoint = CGPointMake( centerv.center.x + self.distance * k/2, centerv.center.y);
                         break;
                     default:
                         break;
@@ -54,11 +62,9 @@
             }
         }
     }
-    
-    self.expanded = !self.isExpanded;
 }
 - (void)close {
-    if (self.isExpanded == false) {
+    if (self.isExpanded == true) {
         return;
     }
     NSInteger k = 0;
@@ -68,13 +74,13 @@
         
         [UIView animateWithDuration:self.animationTimeInterval animations:^{
             
-            btn.center = self.centerBtn.center;
+            btn.center = self.centerBtn?self.centerBtn.center:self.centerView.center;
             
         } completion:^(BOOL finished) {
             
         }];
     }
-    self.expanded = !self.isExpanded;
+    
 }
 
 
