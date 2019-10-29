@@ -64,7 +64,7 @@
     NSArray *btns2 = @[subBtn4,subBtn5,subBtn6];
     
 
-    _popMenu =  [HLPopMenu menuWithType:HLPopMenuStyleSector];
+    _popMenu =  [HLPopMenu menuWithType:HLPopMenuStyleLiner];
     _popMenu.frame = CGRectMake(self.view.center.x-30, 200, 60, 60);
     _popMenu.centerView = centerView;
     _popMenu.items = btns2;
